@@ -202,3 +202,64 @@ console.log(myClass.name);   // Abdul Raheem
 console.log(myClass.getName());  // Abdul Raheem
 
 
+
+
+
+// Class Static Side Properties
+
+//When working with classes and interfaces, it helps to keep in mind that a class has two types: 
+//the type of the static side and the type of the instance side. 
+
+//Lets us define a interface that defines a constructor
+
+interface clockInterface{
+    new (hour:number,minute:number):void
+}
+
+//Please note that the constructor sits in the static side, it cannot be implemented:
+
+//You may notice that if you create an interface with a construct signature and try to 
+//create a class that implements this interface you get an error:
+
+// class clock implements clockInterface{   // Error
+//     currentTime: Date;
+//     constructor(h: number, m: number) { }
+// }
+
+
+//Instead, you would need to work with the 'static' side of the class directly. In this example, we work with the class directly:
+
+interface clockStatic{
+    new (hour:number,minute:number):Clock
+}
+
+interface myClockInterface{
+    currentDate:Date;
+}
+
+class Clock implements myClockInterface{
+    currentDate: Date;
+    constructor(){
+        this.currentDate= new Date();
+    }
+}
+let cs:clockStatic= Clock;
+let newClock:myClockInterface= new cs(7,8);
+
+
+
+// Class Expressions
+
+//Similar to class declarations, class expressions allow you to create new classes.  
+//Unlike class declarations, you can use class expressions wherever you use an expression.  
+//For example, you can now create a class and use it in your extends clause.
+
+class stateHandler extends class{reset(){
+    return true;
+}}{
+    constructor(){
+        super();
+    }
+}
+let handler= new stateHandler();
+handler.reset()

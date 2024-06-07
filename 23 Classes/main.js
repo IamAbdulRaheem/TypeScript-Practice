@@ -158,5 +158,28 @@ class myClass {
     }
 }
 const getName = new myClass("Abdul Raheem");
-console.log(myClass.name);
-console.log(myClass.getName());
+console.log(myClass.name); // Abdul Raheem
+console.log(myClass.getName()); // Abdul Raheem
+class Clock {
+    currentDate;
+    constructor() {
+        this.currentDate = new Date();
+    }
+}
+let cs = Clock;
+let newClock = new cs(7, 8);
+// Class Expressions
+//Similar to class declarations, class expressions allow you to create new classes.  
+//Unlike class declarations, you can use class expressions wherever you use an expression.  
+//For example, you can now create a class and use it in your extends clause.
+class stateHandler extends class {
+    reset() {
+        return true;
+    }
+} {
+    constructor() {
+        super();
+    }
+}
+let handler = new stateHandler();
+handler.reset();
